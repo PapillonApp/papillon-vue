@@ -1,0 +1,59 @@
+/* Changements globaux */
+* {
+    /* Réinitialise les marges et les paddings */
+    margin: 0;
+    padding: 0;
+    
+    /* Définit la police de caractère */
+    font-family: var(--font);
+    font-variation-settings: "opsz" 10;
+
+    user-select: none !important;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Changements sur le body */
+body {
+    /* Donne un taille précise à la page */
+    width: 100vw;
+    height: 100vh;
+
+    background: var(--bg-color);
+
+    /* Empêche le scroll horizontal */
+    overflow: hidden;
+}
+
+/* Icones */
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+/* Import font from ../fonts */
+@font-face {
+    font-family: 'Papillantarell';
+    src: url('Cantarell-VF.woff2');
+}
+
+/* Variables */
+:root {
+    --font: 'Papillantarell';
+}
+
+/* iPhone X and newer */
+@media only screen and (min-device-width: 414px) and (min-device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait),
+only screen and (min-device-width: 375px) and (min-device-height: 812px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait),
+only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3),
+only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
+only screen and (device-width: 390px) and (device-height: 844px),
+only screen and (device-width: 390px) and (device-height: 844px),
+only screen and (device-width: 428px) and (device-height: 926px) {
+    :root {
+        --menuPadding: 25px;
+    }
+}

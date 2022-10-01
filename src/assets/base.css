@@ -1,0 +1,15 @@
+:root {
+    --menuHeight: 65px;
+    --menuPadding: 0px;
+}
+
+:root {
+    --elem-color: #F9F9FC;
+    --elem-border: #EEEEF1;
+    --elem-text-color: #8388A7;
+    --elem-text-color-active: #3F33C5;
+    --elem-text-color-opacity: #3F33C522;
+    --light-text-color: #393852;
+    --light-bg-color: #D5E7FF;
+    --bg-color: #fff;
+}

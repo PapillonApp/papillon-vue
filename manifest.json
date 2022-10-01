@@ -1,0 +1,10 @@
+{
+    "short_name": "Pronote+",
+    "name": "Pronote+ - Vos notes et +",
+    "id": "/",
+    "start_url": "/",
+    "background_color": "#000",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#fff"
+}
