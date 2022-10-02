@@ -12,4 +12,20 @@
     --light-text-color: #393852;
     --light-bg-color: #D5E7FF;
     --bg-color: #fff;
+    --theme-color: var(--elem-text-color-active);
+}
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --elem-color: #181818;
+        --elem-border: #2F2F2F;
+        --elem-text-color: #8388A7;
+        --elem-text-color-active: #4537dd;
+        --elem-text-color-opacity: #3F33C522;
+        --light-text-color: #fff;
+        --light-bg-color: #D5E7FF;
+        --bg-color: #0e0e0e;
+        --theme-color: var(--elem-text-color-active);
+    }
 }

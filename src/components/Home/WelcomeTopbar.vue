@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div id="today-calendar">
+        <div id="today-calendar" v-wave>
             <p id="today-calendar-day">{{day}}</p>
             <p id="today-calendar-date">{{month}}</p>
         </div>
@@ -39,7 +39,7 @@
     #welcome-topbar {
         height: 200px;
         width: 100%;
-        background: var(--light-bg-color);
+        background: var(--theme-color);
         position: relative;
     } 
 
@@ -52,7 +52,7 @@
     #today-calendar {
         width: 48px;
         height: 48px;
-        background: var(--elem-text-color-opacity);
+        background: #ffffff;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -92,7 +92,7 @@
         font-size: 20px;
         line-height: 24px;
 
-        color: var(--elem-text-color-active);
+        color: #fff;
 
         width: 50vw;
         overflow: hidden;
@@ -107,7 +107,7 @@
         line-height: 19px;
         letter-spacing: 0.01em;
 
-        color: var(--elem-text-color-active);
+        color: #fff;
         opacity: 50%;
 
         width: 50vw;
@@ -133,7 +133,7 @@
         font-size: 32px;
         line-height: 38px;
 
-        color: var(--elem-text-color-active);
+        color: #fff;
 
         bottom: 17px;
         left: 22px;

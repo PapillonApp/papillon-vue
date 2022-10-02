@@ -10,12 +10,12 @@ const router = createRouter({
       component: PapillonHome
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/edt',
+      name: 'edt',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../views/EdtView.vue')
     }
   ]
 })

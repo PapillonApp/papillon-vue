@@ -57,3 +57,35 @@ only screen and (device-width: 428px) and (device-height: 926px) {
         --menuPadding: 25px;
     }
 }
+
+::-webkit-scrollbar {
+    display: none !important;
+}
+
+.animated {
+    animation: appear 250ms 50ms cubic-bezier(0,0,0,1.01) forwards,
+    fadeIn 300ms 50ms ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes appear {
+    0% {
+        transform: translateY(20px) scale(80%);
+    }
+    100% {
+        transform: translateY(0px) scale(100%);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+main {
+    background: var(--bg-color);
+}
