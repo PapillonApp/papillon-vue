@@ -20,6 +20,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --elem-color: #181818;
+        --elem-color-dark: #222222;
         --elem-border: #2F2F2F;
         --elem-text-color: #8388A7;
         --elem-text-color-active: #4537dd;
