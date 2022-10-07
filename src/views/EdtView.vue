@@ -9,9 +9,9 @@
 </script>
 
 <template>
-  <maain>
+  <main>
     <NavigationTitle title="Cours"/>
-  </maain>
+  </main>
 </template>
 
 <style>

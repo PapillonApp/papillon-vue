@@ -6,24 +6,104 @@
     components: {
       WelcomeTopbar,
       CoursItem
+    },
+    data() {
+      return {
+        userName: '',
+        userEtab: '',
+        userAvatar: '',
+        timetable : [],
+      }
+    },
+    created() {
+      this.getUserData()
+      this.getTimetableRecent()
+    },
+    methods: {
+      getUserData: async function() {
+        const resp = await sendQL(`{
+          user {
+            name,
+            avatar,
+            studentClass {
+              name
+            },
+            establishment {
+              name
+            }
+          }
+        }`)
+
+        console.log(resp)
+        this.userName = resp.data.user.name
+        this.userEtab = resp.data.user.establishment.name
+        this.userAvatar = resp.data.user.avatar
+      },
+      getTimetableRecent: async function() {
+        const resp = await sendQL(`{
+          timetable(from: "2022-10-07") {
+            subject,
+            teacher
+            room,
+            from,
+            to
+          }
+        }`)
+
+        this.timetable = resp.data.timetable
+        // only 3 next lessons
+        this.timetable = this.timetable.slice(0, 3)
+      },
+      convertTime: function(time) {
+        let date = new Date(time)
+
+        // remove 2 hours
+        date.setHours(date.getHours() - 2)
+
+        let hours = date.getHours()
+        let minutes = date.getMinutes()
+
+        if (minutes < 10) {
+          minutes = '0' + minutes
+        }
+
+        return hours + 'h' + minutes
+      },
+      timeDifference: function(from, to) {
+        let dateFrom = new Date(from)
+        let dateTo = new Date(to)
+
+        // remove 2 hours
+        dateFrom.setHours(dateFrom.getHours() - 2)
+        dateTo.setHours(dateTo.getHours() - 2)
+
+        let hours = dateTo.getHours() - dateFrom.getHours()
+        let minutes = dateTo.getMinutes() - dateFrom.getMinutes()
+
+        if (minutes < 10) {
+          minutes = '0' + minutes
+        }
+
+        return hours + 'h' + minutes
+      }
     }
   }
 </script>
 
 <template>
   <main>
-    <WelcomeTopbar title="Ma journée" />
+    <WelcomeTopbar title="Ma journée" :userName="userName" :userEtab="userEtab" :userAvatar="userAvatar"/>
     <div id="HomeData">
-      <List id="welcome-coursList">
-            <ListTitle>
+      <div class="list" id="welcome-coursList">
+            <div id="ListTitle">
                 <p>Emploi du temps</p>
                 <button v-wave>Voir tout</button>
-            </ListTitle>
+            </div>
 
-            <CoursItem start="8h30" diff="1h00" subject="Espagnol" teacher="Mme. Dupont" room="A101"/>
-            <CoursItem start="9h30" diff="2h00" subject="Mathémathiques" teacher="M. Martin-Sanchez" room="B204"/>
-            <CoursItem start="11h35" diff="1h00" subject="Ens. scientifique" teacher="Mme. Caillou" room="D202"/>
-        </List>
+            <div v-for='cours in timetable'>
+              <CoursItem :start="convertTime(cours.from)" :diff="timeDifference(cours.from, cours.to)" :subject="cours.subject" :teacher="cours.teacher" :room="cours.room"/>
+            </div>
+          </div>
     </div>
   </main>
 </template>
@@ -39,7 +119,7 @@
     padding-top: 200px;
   }
 
-  List {
+  .list {
     padding: 22px 23px;
 
     display: flex;
@@ -47,13 +127,13 @@
     gap: 11px;
   }
 
-  List > ListTitle {
+  .list > #ListTitle {
       display: flex;
       position: relative;
       align-items: center;
   }
 
-  List > ListTitle > p {
+  .list > #ListTitle > p {
       font-style: normal;
       font-variation-settings: "wght" 650;
       font-size: 16px;
@@ -66,7 +146,7 @@
       color: var(--elem-text-color);
   }
 
-  List > ListTitle > button {
+  .list > #ListTitle > button {
       -webkit-appearance: none;
       background: none;
       border: none;

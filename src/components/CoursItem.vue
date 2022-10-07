@@ -5,34 +5,34 @@
 </script>
 
 <template>
-    <Cours v-wave class="animated">
-                <CoursDate>
-                    <CoursStart>{{start}}</CoursStart>
-                    <CoursTime>{{diff}}</CoursTime>
-                </CoursDate>
-                <CoursData>
-                    <CoursName>{{subject}}</CoursName>
+    <div class="cours animated" v-wave>
+                <div class="coursDate">
+                    <div class="CoursStart">{{start}}</div>
+                    <div class="CoursTime">{{diff}}</div>
+                </div>
+                <div class="coursData">
+                    <div class="coursName">{{subject}}</div>
 
-                    <CoursIcons>
-                        <CoursIcon>
+                    <div class="coursIcons">
+                        <div class="coursIcon">
                             <span class="material-symbols-outlined">
                                 location_on
                             </span>
                             <p>{{room}}</p>
-                        </CoursIcon>
-                        <CoursIcon>
+                        </div>
+                        <div class="coursIcon">
                             <span class="material-symbols-outlined">
                                 account_circle
                             </span>
                             <p>{{teacher}}</p>
-                        </CoursIcon>
-                    </CoursIcons>
-                </CoursData>
-            </Cours>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </template>
 
 <style scoped>
-    Cours {
+    .cours {
         flex: none;
         order: 1;
         flex-grow: 0;
@@ -43,7 +43,7 @@
         color: var(--light-text-color);
     }
 
-    Cours > CoursDate {
+    .cours > .coursDate {
         width: 72px;
         display: flex;
         flex-direction: column;
@@ -52,7 +52,7 @@
         border-right: 1px solid var(--elem-border);
     }
 
-    Cours > CoursDate > CoursStart {
+    .cours > .coursDate > .CoursStart {
         font-style: normal;
         font-variation-settings: "wght" 650;
         font-size: 18px;
@@ -67,7 +67,7 @@
         margin-bottom: 4px;
     }
 
-    Cours > CoursDate > CoursTime {
+    .cours > .coursDate > .CoursTime {
         font-style: normal;
         font-variation-settings: "wght" 500;
         font-size: 16px;
@@ -82,7 +82,7 @@
         opacity: 50%;
     }
 
-    Cours > CoursData {
+    .cours > .coursData {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -90,7 +90,7 @@
         gap: 14px;
     }
 
-    Cours > CoursData > CoursName {
+    .cours > .coursData > .coursName {
         font-style: normal;
         font-variation-settings: "wght" 650;
         font-size: 20px;
@@ -100,7 +100,7 @@
         color: var(--light-text-color);
     }
 
-    Cours > CoursData > CoursIcons {
+    .cours > .coursData > .coursIcons {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -109,7 +109,7 @@
         gap: 3px;
     }
 
-    Cours > CoursData > CoursIcons > CoursIcon {
+    .cours > .coursData > .coursIcons > .coursIcon {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -118,14 +118,14 @@
         opacity: 50%;
     }
 
-    Cours > CoursData > CoursIcons > CoursIcon > p {
+    .cours > .coursData > .coursIcons > .coursIcon > p {
         color: var(--light-text-color);
         font-variation-settings: "wght" 500;
         font-size: 16px;
         line-height: 100%;
     }
 
-    Cours > CoursData > CoursIcons > CoursIcon > .material-symbols-outlined {
+    .cours > .coursData > .coursIcons > .coursIcon > .material-symbols-outlined {
         font-variation-settings:
         'FILL' 1,
         'wght' 500,

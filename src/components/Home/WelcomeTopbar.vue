@@ -5,10 +5,9 @@
     let monthName = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
 
     export default {
-      props: ['title'],
+      props: ['title', 'userName', 'userEtab', 'userAvatar'],
       data() {
         return {
-            title: this.title,
             day: day,
             month: monthName[month]
         }
@@ -19,10 +18,10 @@
 <template>
     <div id="welcome-topbar">
         <div id="welcome-user-data">
-            <img id="welcome-user-pdp"/>
+            <img id="welcome-user-pdp" :src="userAvatar"/>
             <div id="welcome-user-name">
-                <p id="welcome-user-name-name">user</p>
-                <p id="welcome-user-name-etab">etab</p>
+                <p id="welcome-user-name-name">{{userName}}</p>
+                <p id="welcome-user-name-etab">{{userEtab}}</p>
             </div>
         </div>
 

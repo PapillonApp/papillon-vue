@@ -10,6 +10,7 @@ import './assets/main.css'
 const app = createApp(App)
 
 app.use(router)
+
 app.use(VWave, {
     duration: 0.2,
     dissolveDuration: 0.2,
