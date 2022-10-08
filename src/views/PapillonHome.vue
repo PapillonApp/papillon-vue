@@ -41,7 +41,7 @@
       },
       getTimetableRecent: async function() {
         const resp = await sendQL(`{
-          timetable(from: "2022-10-07") {
+          timetable {
             subject,
             teacher
             room,
@@ -102,6 +102,10 @@
 
             <div v-for='cours in timetable'>
               <CoursItem :start="convertTime(cours.from)" :diff="timeDifference(cours.from, cours.to)" :subject="cours.subject" :teacher="cours.teacher" :room="cours.room"/>
+            </div>
+
+            <div v-if='timetable.length == 0'>
+              <CoursItem start="" diff="" subject="Pas de cours pour aujourd'hui" :teacher="userName" :room="userEtab"/>
             </div>
           </div>
     </div>
