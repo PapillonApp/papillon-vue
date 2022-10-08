@@ -1,5 +1,8 @@
-# papillon
+# ![image](https://user-images.githubusercontent.com/32978709/194712415-e7b5da51-e39a-4877-ad20-7acb32ec4651.png)
 
+Voici Pronote+ 4., le futur de l'application de gestion de vie scolaire Pronote+. Nouveau design, nouvelles fonctionnalités, nouvelle architecture. C'est parti pour une nouvelle année pleine en nouveautés.
+
+## Readme (TODO)
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
