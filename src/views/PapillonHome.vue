@@ -55,36 +55,10 @@
         this.timetable = this.timetable.slice(0, 3)
       },
       convertTime: function(time) {
-        let date = new Date(time)
-
-        // remove 2 hours
-        date.setHours(date.getHours() - 2)
-
-        let hours = date.getHours()
-        let minutes = date.getMinutes()
-
-        if (minutes < 10) {
-          minutes = '0' + minutes
-        }
-
-        return hours + 'h' + minutes
+        return convertTime(time)
       },
       timeDifference: function(from, to) {
-        let dateFrom = new Date(from)
-        let dateTo = new Date(to)
-
-        // remove 2 hours
-        dateFrom.setHours(dateFrom.getHours() - 2)
-        dateTo.setHours(dateTo.getHours() - 2)
-
-        let hours = dateTo.getHours() - dateFrom.getHours()
-        let minutes = dateTo.getMinutes() - dateFrom.getMinutes()
-
-        if (minutes < 10) {
-          minutes = '0' + minutes
-        }
-
-        return hours + 'h' + minutes
+        return timeDifference(from, to)
       }
     }
   }
@@ -121,59 +95,5 @@
 
   #HomeData {
     padding-top: 200px;
-  }
-
-  .list {
-    padding: 22px 23px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 11px;
-  }
-
-  .list > #ListTitle {
-      display: flex;
-      position: relative;
-      align-items: center;
-  }
-
-  .list > #ListTitle > p {
-      font-style: normal;
-      font-variation-settings: "wght" 650;
-      font-size: 16px;
-      line-height: 100%;
-      /* identical to box height, or 16px */
-
-      letter-spacing: 0.02em;
-
-      opacity: 0.7;
-      color: var(--elem-text-color);
-  }
-
-  .list > #ListTitle > button {
-      -webkit-appearance: none;
-      background: none;
-      border: none;
-
-      margin: 0px;
-      padding: 0px;
-
-      text-align: right;
-      position: absolute;
-      right: 0px;
-
-      font-style: normal;
-      font-variation-settings: "wght" 650;
-      font-size: 16px;
-
-      text-align: right;
-      letter-spacing: 0.02em;
-
-      color: var(--elem-text-color-active);
-
-      padding: 5px 10px;
-      border-radius: 5px;
-      margin-top: -1.5px;
-      margin-right: -5px;
   }
 </style>

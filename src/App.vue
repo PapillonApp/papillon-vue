@@ -6,7 +6,9 @@ import NavigationInterface from './components/NavigationInterface.vue';
 <template>
   <router-view v-slot="{ Component }">
     <transition name="fade">
+      <keep-alive>
       <component :is="Component" />
+      </keep-alive>
     </transition>
   </router-view>
   <NavigationInterface />
@@ -22,7 +24,7 @@ import NavigationInterface from './components/NavigationInterface.vue';
 
 <style>
   .fade-enter-active {
-    transition: all 300ms;
+    transition: none 300ms;
   }
 
   .fade-enter-from {

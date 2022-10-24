@@ -24,6 +24,12 @@ body {
     overflow: hidden;
 }
 
+#app {
+    background: var(--bg-color);
+    overflow-y: scroll
+    ;
+}
+
 /* Icones */
 .material-symbols-outlined {
     font-variation-settings:
@@ -87,4 +93,76 @@ only screen and (device-width: 428px) and (device-height: 926px) {
 
 main {
     background: var(--bg-color);
+}
+
+.list {
+    padding: 22px 23px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .list > #ListTitle {
+      display: flex;
+      position: relative;
+      align-items: center;
+  }
+
+  .list > #ListTitle > p {
+      font-style: normal;
+      font-variation-settings: "wght" 650;
+      font-size: 16px;
+      line-height: 100%;
+      /* identical to box height, or 16px */
+
+      letter-spacing: 0.02em;
+
+      opacity: 0.7;
+      color: var(--elem-text-color);
+  }
+
+  .list > #ListTitle > button {
+      -webkit-appearance: none;
+      background: none;
+      border: none;
+
+      margin: 0px;
+      padding: 0px;
+
+      text-align: right;
+      position: absolute;
+      right: 0px;
+
+      font-style: normal;
+      font-variation-settings: "wght" 650;
+      font-size: 16px;
+
+      text-align: right;
+      letter-spacing: 0.02em;
+
+      color: var(--elem-text-color-active);
+
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-top: -1.5px;
+      margin-right: -5px;
+  }
+
+.NavigationContent {
+    margin-top: 56px;
+    padding-bottom: 16px;
+}
+
+.notification {
+    background: #222 !important;
+    box-shadow: none !important;
+    text-align: left;
+    min-width: 80% !important;
+    max-width: 80% !important;
+    border-radius: 7px;
+    padding: 14px 24px;
+    margin-bottom: var(--menuPadding) !important;
+    font-size: 16px;
+    font-variation-settings: "wght" 500;
 }
