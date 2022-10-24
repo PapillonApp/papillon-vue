@@ -7,6 +7,10 @@
     if(oldAuthData) {
         oldAuthData = JSON.parse(oldAuthData)
 
+        notify(`Votre session à expiré.
+                        Pronote+ est en train de vous reconnecter...
+                    `)
+
         let authURL = constructAuthURL(oldAuthData);
         fetch(authURL)
             .then(response => response.json())
@@ -15,10 +19,14 @@
 
                 // error handling
                 if(resp.code == 1) {
-                    console.log("ENT inconnu");
+                    notify(`L'ENT indiqué n'est pas supporté par Pronote+.
+                        Vérifiez son format.
+                    `)
                 }
                 else if(resp.code == 3 && resp.token == null) {
-                    console.log("Identifiants incorrects");
+                    notify(`Votre identifiant ou votre mot de passe est incorrect.
+                        Vérifiez les informations saisies.
+                    `)
                 }
 
                 if(resp.token !== undefined) {
@@ -53,10 +61,14 @@
 
                 // error handling
                 if(resp.code == 1) {
-                    console.log("ENT inconnu");
+                    notify(`L'ENT indiqué n'est pas supporté par Pronote+.
+                        Vérifiez son format.
+                    `)
                 }
                 else if(resp.code == 3 && resp.token == null) {
-                    console.log("Identifiants incorrects");
+                    notify(`Votre identifiant ou votre mot de passe est incorrect.
+                        Vérifiez les informations saisies.
+                    `)
                 }
 
                 if(resp.token !== undefined) {
@@ -75,7 +87,7 @@
 <template>
     <main>
         <NavigationTitle title="Connexion à Pronote+"/>
-        <div id="LoginBox">
+        <div id="LoginBox" class="NavigationContent">
             <input v-wave id="username" type="text" placeholder="Identifiant Pronote" v-model="username" />
             <input v-wave id="password" type="password" placeholder="Mot de passe Pronote" v-model="password" />
             <input v-wave id="url" type="url" placeholder="URL de l'interface Pronote" v-model="url" />
@@ -87,7 +99,7 @@
 
 <style scoped>
     #LoginBox {
-        margin: 15px;
+        padding: 15px;
     }
 
     input {
