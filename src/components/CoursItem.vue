@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <div class="cours animated" v-wave>
+    <div class="cours" v-wave>
                 <div class="coursDate">
                     <div class="CoursStart">{{start}}</div>
                     <div class="CoursTime">{{diff}}</div>
@@ -45,6 +45,7 @@
 
     .cours > .coursDate {
         width: 72px;
+        min-width: 72px;
         display: flex;
         flex-direction: column;
         align-items: center;
