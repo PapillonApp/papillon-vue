@@ -4,23 +4,39 @@
     let month = date.getMonth();
     let year = date.getFullYear();
 
+    // add leading zero to single digit numbers
+    if (day < 10) {
+        day = '0' + day;
+    }
+
+    if (month < 10) {
+        month = '0' + month;
+    }
+
     // dateStr as yyyy-mm-dd
     let dateStr = year + '-' + (month + 1) + '-' + day;
+    console.log(dateStr);
 
     export default {
       props: ['title', 'showDate'],
       data() {
         return {
-            dateStr: dateStr
+            dateStr: dateStr,
+            currentValue : dateStr
         }
       },
       mounted () {
         let rnPicker = document.getElementById('rnPicker');
-        rnPicker.addEventListener('change', function() {
-            let newValue = rnPicker.value;
-            let newDate = new Date(newValue);
-            rn = newDate;
-        });
+
+        if(this.showDate) {
+            rnPicker.addEventListener('change', function() {
+                let newValue = rnPicker.value;
+                let newDate = new Date(newValue);
+                rn = newDate;
+                
+                document.dispatchEvent(new CustomEvent('dateChanged'));
+            });
+        }
       }
     }
 </script>
@@ -28,7 +44,7 @@
 <template>
     <div class="titleView">
         <p>{{title}}</p>
-        <input v-if="showDate" type="date" id="rnPicker" name="rnPicker" :value="dateStr">
+        <input v-if="showDate" type="date" id="rnPicker" name="rnPicker" :value="currentValue">
     </div>
 </template>
 

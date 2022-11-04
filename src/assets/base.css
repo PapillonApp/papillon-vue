@@ -4,14 +4,19 @@
 }
 
 :root {
+    --brand-h: 151;
+    --brand-s: 63%;
+    --brand-l: 41%;
+
+    --elem-text-color-active: hsl(var(--brand-h), var(--brand-s), var(--brand-l));
+
     --elem-color: #F9F9FC;
     --elem-color-dark: #ebebee;
     --elem-border: #EEEEF1;
-    --elem-text-color: #8388A7;
-    --elem-text-color-active: #3F33C5;
-    --elem-text-color-opacity: #3F33C522;
-    --light-text-color: #393852;
-    --light-bg-color: #D5E7FF;
+    --elem-text-color: hsl(var(--brand-h), 25%, 27%, 60%);
+    --elem-text-color-opacity: hsl(var(--brand-h), 19%, 27%, 25%);
+    --light-text-color: hsl(var(--brand-h), 19%, 27%);
+    --light-bg-color: hsl(var(--brand-h), 20%, 95%);
     --bg-color: #fff;
     --theme-color: var(--elem-text-color-active);
 }
@@ -22,11 +27,10 @@
         --elem-color: #181818;
         --elem-color-dark: #222222;
         --elem-border: #2F2F2F;
-        --elem-text-color: #8388A7;
-        --elem-text-color-active: #4537dd;
-        --elem-text-color-opacity: #3F33C522;
-        --light-text-color: #fff;
-        --light-bg-color: #D5E7FF;
+        --elem-text-color: hsl(var(--brand-h), 25%, 90%, 60%);
+        --elem-text-color-opacity: hsl(var(--brand-h), 19%, 90%, 25%);
+        --light-text-color: hsl(var(--brand-h), 19%, 90%);
+        --light-bg-color: hsl(var(--brand-h), 20%, 10%);
         --bg-color: #0e0e0e;
         --theme-color: var(--elem-text-color-active);
     }

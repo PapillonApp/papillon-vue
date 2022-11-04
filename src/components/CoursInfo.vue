@@ -1,24 +1,28 @@
 <script>
     export default {
-      props: ['subject', 'teacher', 'room', 'start', 'diff', 'color', 'isCours'],
+      props: ['subject', 'teacher', 'room', 'start', 'diff', 'color', 'end'],
       mounted() {
         let color = this.color
         if(this.color == undefined) {
             color = '#3F33C5'
         }
-        let newColor = lightenDarkenColor(color, -50)
+        let newColor = color
         this.$el.style.setProperty('--color', newColor)
       }
     }
 </script>
 
 <template>
-    <div class="cours" v-wave>
-                <div class="coursDate" v-if="isCours">
-                    <div class="CoursStart">{{start}}</div>
-                    <div class="CoursTime">{{diff}}</div>
-                </div>
-                <div class="coursData">
+    <div class="cours">
+                <div class="preCours">
+                    <div class="leftPreCours">
+                        <div class="preCoursTab"></div>
+                        <div class="CoursStart"><span>{{start}}</span> à {{end}}</div>
+                    </div>
+                    <div class="CoursTime">{{diff}} de cours</div>
+                </div>        
+
+                <div class="coursData" v-wave>
                     <div class="coursName">{{subject}}</div>
 
                     <div class="coursIcons">
@@ -41,55 +45,45 @@
 
 <style scoped>
     .cours {
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-        box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.2), 0px 1px 2px rgba(0, 0, 0, 0.1);
-        background: var(--elem-color);
-        border-radius: 15px;
-        display: flex;
-        color: var(--light-text-color);
-        overflow: hidden;
+        width: 100vw;
+        margin-top: 15px;
+        margin-bottom: 30px;
     }
 
-    .cours > .coursDate {
-        width: 72px;
-        min-width: 72px;
+    .cours > .preCours {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+    }
+
+    .preCours .preCoursTab {
+        width: 20px;
+        max-width: 20px;
+        height: 10px;
         background: var(--color);
+        border-radius: 0px 300px 300px 0px;
+        margin-right: 10px;
     }
 
-    .cours > .coursDate > .CoursStart {
-        font-style: normal;
-        font-variation-settings: "wght" 650;
-        font-size: 18px;
-        line-height: 100%;
-
-        display: flex;
-        align-items: flex-end;
-        text-align: center;
-        letter-spacing: 0.02em;
-
-        color: #fff;
-        margin-bottom: 4px;
-    }
-
-    .cours > .coursDate > .CoursTime {
-        font-style: normal;
+    .preCours .CoursStart {
         font-variation-settings: "wght" 500;
-        font-size: 16px;
-        line-height: 100%;
+        color: var(--light-text-color);
+    }
 
+    .preCours .CoursStart span {
+        font-variation-settings: "wght" 650;
+    }
+
+    .preCours > .leftPreCours {
         display: flex;
-        align-items: flex-end;
-        text-align: center;
-        letter-spacing: 0.02em;
+        align-items: center;
+    }
 
-        color: #fff;
+    .preCours > .CoursTime {
+        color: var(--light-text-color);
+        font-variation-settings: "wght" 400;
         opacity: 50%;
+        margin-right: 20px;
     }
 
     .cours > .coursData {
@@ -98,6 +92,12 @@
         align-items: flex-start;
         padding: 12px;
         gap: 14px;
+        border-radius: 15px;
+        border: 1px solid var(--elem-border);
+        margin-top: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+        color: var(--light-text-color) !important;
     }
 
     .cours > .coursData > .coursName {

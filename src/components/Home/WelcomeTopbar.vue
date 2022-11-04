@@ -40,6 +40,7 @@
         width: 100%;
         background: var(--theme-color);
         position: relative;
+        z-index: 999999999999;
     } 
 
     #welcome-scrollzone {

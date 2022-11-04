@@ -8,12 +8,22 @@
         <p>Accueil</p>
       </div>
     </RouterLink>
+    
     <RouterLink to="/edt">
       <div class="nav-item" v-wave>
         <span class="material-symbols-outlined">
         event_note
         </span>
         <p>Cours</p>
+      </div>
+    </RouterLink>
+
+    <RouterLink to="/homework">
+      <div class="nav-item" v-wave>
+        <span class="material-symbols-outlined">
+          checklist
+        </span>
+        <p>Devoirs</p>
       </div>
     </RouterLink>
   </nav>
@@ -25,12 +35,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: var(--elem-color);
+      background-color: var(--light-bg-color);
       padding-bottom: var(--menuPadding);
       overflow-y: scroll;
       position: fixed;
       bottom: 0;
       width: 100%;
+      /* border-top: 1px solid var(--elem-border); */
   }
 
   nav > a {

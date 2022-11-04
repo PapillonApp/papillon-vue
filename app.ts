@@ -93,5 +93,33 @@ function notify(message) {
       }).showToast();
 }
 
+// color
+const lightenDarkenColor = (color, amount) => {
+    let colorWithoutHash = color.replace("#", "")
+    if (colorWithoutHash.length === 3) {
+      colorWithoutHash = colorWithoutHash
+        .split("")
+        .map(c => `${c}${c}`)
+        .join("")
+    }
+  
+    const getColorChannel = substring => {
+      let colorChannel = parseInt(substring, 16) + amount
+      colorChannel = Math.max(Math.min(255, colorChannel), 0).toString(16)
+  
+      if (colorChannel.length < 2) {
+        colorChannel = `0${colorChannel}`
+      }
+  
+      return colorChannel
+    }
+  
+    const colorChannelRed = getColorChannel(colorWithoutHash.substring(0, 2))
+    const colorChannelGreen = getColorChannel(colorWithoutHash.substring(2, 4))
+    const colorChannelBlue = getColorChannel(colorWithoutHash.substring(4, 6))
+  
+    return `#${colorChannelRed}${colorChannelGreen}${colorChannelBlue}`
+  }
+
 // date management
 let rn = new Date();

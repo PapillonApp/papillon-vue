@@ -1,11 +1,13 @@
 <script lang="ts">
   import NavigationTitle from '@/components/NavigationTitle.vue';
-  import CoursItem from '@/components/CoursItem.vue';
+  import CoursInfo from '@/components/CoursInfo.vue';
+  import NavigationItem from '@/components/NavigationItem.vue';
 
   export default {
     components: {
       NavigationTitle,
-      CoursItem
+      CoursInfo,
+      NavigationItem
     },
     data() {
       return {
@@ -14,6 +16,11 @@
     },
     created() {
       this.getTimetable(rn)
+
+      self = this
+      document.addEventListener('dateChanged', function() {
+        self.getTimetable(rn)
+      });
     },
     methods: {
       getTimetable: async function(date) {
@@ -25,11 +32,15 @@
             teacher
             room,
             from,
-            to
+            to,
+            color
           }
         }`)
 
         this.timetable = resp.data.timetable
+        if(resp.data.timetable == null) {
+          this.timetable = []
+        }
       },
       convertTime: function(time) {
         return convertTime(time)
@@ -43,21 +54,28 @@
 
 <template>
   <main>
+
     <NavigationTitle title="Cours" showDate="True"/>
+
     <div id="EdtData" class="NavigationContent">
-      <div class="list" id="edt-coursList">
+
+      <div id="edt-coursList">
         <div v-for='cours in timetable'>
-          <CoursItem :start="convertTime(cours.from)" :diff="timeDifference(cours.from, cours.to)" :subject="cours.subject" :teacher="cours.teacher" :room="cours.room"/>
+          <CoursInfo :start="convertTime(cours.from)" :end="convertTime(cours.to)" :diff="timeDifference(cours.from, cours.to)" :subject="cours.subject" :teacher="cours.teacher" :room="cours.room" :color="cours.color"/>
         </div>
 
         <div v-if='timetable.length == 0'>
-          <CoursItem start="" diff="" subject="Pas de cours pour aujourd'hui" :teacher="userName" :room="userEtab"/>
+          <CoursInfo start="" diff="" subject="Pas de cours pour aujourd'hui" :teacher="userName" :room="userEtab"/>
         </div>
       </div>
+
     </div>
+
   </main>
 </template>
 
 <style scoped>
-  
+  #EdtData {
+    padding-top: 1px !important;
+  }
 </style>
