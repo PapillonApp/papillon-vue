@@ -44,9 +44,12 @@
         flex: none;
         order: 1;
         flex-grow: 0;
-        box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.2), 0px 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow:
+            0px 1px 3px rgba(0, 0, 0, 0.15),
+            0px 1px 2px rgba(0, 0, 0, 0.1)
+        ;
         background: var(--elem-color);
-        border-radius: 15px;
+        border-radius: 16px;
         display: flex;
         color: var(--light-text-color);
         overflow: hidden;

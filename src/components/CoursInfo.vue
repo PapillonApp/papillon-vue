@@ -46,7 +46,7 @@
 <style scoped>
     .cours {
         width: 100vw;
-        margin-top: 15px;
+        margin-top: 16px;
         margin-bottom: 30px;
     }
 

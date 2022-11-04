@@ -1,5 +1,5 @@
 :root {
-    --menuHeight: 65px;
+    --menuHeight: 76px;
     --menuPadding: 0px;
 }
 
@@ -17,21 +17,21 @@
     --elem-text-color-opacity: hsl(var(--brand-h), 19%, 27%, 25%);
     --light-text-color: hsl(var(--brand-h), 19%, 27%);
     --light-bg-color: hsl(var(--brand-h), 20%, 95%);
-    --bg-color: #fff;
-    --theme-color: var(--elem-text-color-active);
+    --bg-color: hsl(var(--brand-h), 63%, 98%);
+    --theme-color: hsl(var(--brand-h), 63%, 92%);
 }
 
 /* dark mode */
 @media (prefers-color-scheme: dark) {
     :root {
-        --elem-color: #181818;
+        --elem-color: hsl(var(--brand-h), 23%, 12%);
         --elem-color-dark: #222222;
         --elem-border: #2F2F2F;
         --elem-text-color: hsl(var(--brand-h), 25%, 90%, 60%);
         --elem-text-color-opacity: hsl(var(--brand-h), 19%, 90%, 25%);
         --light-text-color: hsl(var(--brand-h), 19%, 90%);
         --light-bg-color: hsl(var(--brand-h), 20%, 10%);
-        --bg-color: #0e0e0e;
-        --theme-color: var(--elem-text-color-active);
+        --bg-color: hsl(var(--brand-h), 63%, 5%);
+        --theme-color: hsl(var(--brand-h), 63%, 12%);
     }
 }

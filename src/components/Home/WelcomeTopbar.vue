@@ -38,9 +38,10 @@
     #welcome-topbar {
         height: 200px;
         width: 100%;
-        background: var(--theme-color);
+        background: hsl(var(--brand-h), 63%, 92%);
         position: relative;
         z-index: 999999999999;
+        color: hsl(var(--brand-h), 63%, 25%);
     } 
 
     #welcome-scrollzone {
@@ -52,7 +53,7 @@
     #today-calendar {
         width: 48px;
         height: 48px;
-        background: #ffffff;
+        background: hsl(var(--brand-h), 63%, 25%, 10%);
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -67,14 +68,12 @@
         font-size: 22px;
         line-height: 20px;
         font-variation-settings: "wght" 600;
-        color: var(--elem-text-color-active);
     }
 
     #today-calendar > #today-calendar-date {
         font-size: 16px;
         line-height: 16px;
         font-variation-settings: "wght" 500;
-        color: var(--elem-text-color-active);
         opacity: 50%;
     } 
 
@@ -92,8 +91,6 @@
         font-size: 20px;
         line-height: 24px;
 
-        color: #fff;
-
         width: 50vw;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -107,7 +104,6 @@
         line-height: 19px;
         letter-spacing: 0.01em;
 
-        color: #fff;
         opacity: 50%;
 
         width: 50vw;
@@ -133,9 +129,18 @@
         font-size: 32px;
         line-height: 38px;
 
-        color: #fff;
-
         bottom: 17px;
         left: 22px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        #welcome-topbar {
+            background: hsl(var(--brand-h), 63%, 12%);
+            color: hsl(var(--brand-h), 63%, 85%);
+        } 
+
+        #today-calendar {
+            background: hsl(var(--brand-h), 63%, 25%, 20%);
+        }
     }
 </style>

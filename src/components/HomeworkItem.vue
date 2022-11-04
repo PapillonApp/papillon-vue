@@ -14,11 +14,13 @@
 
 <template>
     <div class="homework" v-wave>
-        <h1>{{subject}}</h1>
+        <p>{{subject}}</p>
         <p>{{description}}</p>
     </div>
 </template>
 
 <style scoped>
-
+  .homework {
+    color: var(--elem-text-color) !important;
+  }
 </style>

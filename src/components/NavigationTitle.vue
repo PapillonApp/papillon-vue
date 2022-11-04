@@ -58,12 +58,12 @@
         top: 0;
         left: 0;
         z-index: 999999;
+        color: hsl(var(--brand-h), 63%, 25%);
     }
 
     .titleView p {
         font-variation-settings: "wght" 650;
         font-size: 20px;
-        color: #fff;
         padding: 16px 24px;
     }
 
@@ -71,7 +71,7 @@
         position: absolute;
         right: 24px;
         -webkit-appearance: none;
-        color: #ffffff77;
+        color: hsl(var(--brand-h), 63%, 25%, 75%);
         border: none;
         font-size: 18px;
         background: none;
@@ -87,5 +87,15 @@
     input[type="date"]::-webkit-calendar-picker-indicator {
         display: none;
         -webkit-appearance: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .titleView {
+            color: hsl(var(--brand-h), 63%, 85%);
+        }
+
+        #rnPicker {
+            color: hsl(var(--brand-h), 63%, 85%, 75%);
+        }
     }
 </style>
